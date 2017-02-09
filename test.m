@@ -1,0 +1,14 @@
+%path = 'D:\MyNut\Document\Research\Biology 3D\data\';
+cha1 = imread('actin.png');
+cha2 = imread('nucleus.png');
+figure;imshow(cha1);
+figure;imshow(cha2);
+cha1 = double(cha1);
+cha2 = double(cha2);
+tic;
+[res_1, res_2] = MCBR(cha1, cha2);
+toc;
+figure;imshow3D(uint8(res_1));
+figure;imshow3D(uint8(res_2));
+imwrite(res_1,'actin_result.png');
+imwrite(res_2,'nucleus_result.png');
